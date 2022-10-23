@@ -13,7 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::rename('produtos', 'produto');
+        Schema::create('categorias', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->text('descricao');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('categorias');
     }
 };
