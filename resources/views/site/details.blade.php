@@ -25,7 +25,17 @@
         </p>
 
         <p style="font-size: 25px; font-weight:700;">{{"R$ ".number_format($produto->preco, 2, ',', '.')}}</p>
-        <button class="btn orange btn-large">Comprar</button>
+
+        <form method="POST" action="{{Route('site.addcarrinho')}}" enctype="multipart/form-data">
+            @csrf
+            <input type="hidden" name="id" value="{{$produto->id}}">
+            <input type="hidden" name="name" value="{{$produto->nome}}">
+            <input type="hidden" name="price" value="{{$produto->preco}}">
+            <input type="number" name="quantity" value="1">
+            <input type="hidden" name="imagem" value="{{$produto->imagem}}">
+            <button type="submit" class="btn orange btn-large">Comprar</button>
+        </form>
+        
     </div>
 </div>
 
