@@ -12,8 +12,7 @@
 </style>
 <div class="row container" style="margin-top: 30px">
     <div class="col m12 m6" style="width: 50%; display: inline-block;">
-        <img src="{{$produto->imagem}}" class="responsive-img">
-        
+        <img src="{{$produto->imagem}}" class="responsive-img">    
     </div>
 
     <div class="col m12 m6" style=" display: inline-block; width: 50%">
@@ -31,10 +30,12 @@
             <input type="hidden" name="id" value="{{$produto->id}}">
             <input type="hidden" name="name" value="{{$produto->nome}}">
             <input type="hidden" name="price" value="{{$produto->preco}}">
-            <input type="number" name="quantity" value="1">
-            <input type="hidden" name="imagem" value="{{$produto->imagem}}">
+            <input style="width:40px; display:block;" min="1" type="number" name="quantity" value="1">
+            <input type="hidden" name="image" value="{{$produto->imagem}}">
             <button type="submit" class="btn orange btn-large">Comprar</button>
         </form>
+
+        
         
     </div>
 </div>
