@@ -73,7 +73,7 @@
         <div class="card orange">
             <div class="card-content white-text">
               <h5>Total: </h5>
-              <span class="card-title">{{"R$ ".number_format(\Cart::getTotal(), 2, ',', '.')}} Avista</span>
+              <span class="card-title">{{"R$ ".number_format(\Cart::getTotal(), 2, ',', '.')}} Á vista ou</span>
               <p>Pague em até 12x Sem Juros</p>
             </div>
         </div>  

@@ -17,8 +17,13 @@
       @foreach ($categoriasMenu as $categoria)
         <li><a href="{{route('site.categoria', $categoria->id)}}">{{$categoria->nome}}</a></li>
       @endforeach
-      
-      
+    </ul>
+
+
+    <!-- Dropdown Structure -->
+    <ul id='dropdown2' class='dropdown-content'>
+        <li><a href="{{route('admin.dashboard')}}"> Dashboard </a></li>
+        <li><a href="{{route('login.logout')}}"> Sair </a></li>
     </ul>
 
 
@@ -29,10 +34,21 @@
             <li><a href="{{route('site.index')}}">Home</a></li>
             <li><a class='dropdown-trigger' href='#' data-target='dropdown1'>Categorias<i class="material-icons right">expand_more</i></a></li>
             <li><a href="{{route('site.carrinho')}}">Carrinho<span class="new badge blue" data-badge-caption="">{{\Cart::getContent()->count()}}</span></a></li>
-            
           </ul>
+
+
+          @auth
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><a class='dropdown-trigger' href='#' data-target='dropdown2'>Olá {{auth()->user()->firstname}}!<i class="material-icons right">expand_more</i></a></li>
+            </ul>
+          @else
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><a href='{{route('login.form')}}'> Logar <i class="material-icons right">lock</i></a></li>
+            </ul>
+          @endauth
+
         </div>
-      </nav>
+    </nav>
 @yield('conteudo')
 
 
