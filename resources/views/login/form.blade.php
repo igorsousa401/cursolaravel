@@ -1,6 +1,4 @@
-@extends('site.layout')
-@section('title', 'Dashboard')
-@section('conteudo')
+
 
 @if($mensagem = Session::get('erro'))
     <p>{{$mensagem}}</p>
@@ -19,10 +17,9 @@
         <input  type="email" name="email"><br>
         Senha:<br>
         <input type="password" name="password"><br>
+        <input type="checkbox" name="remember">Lembrar-me<br>
         
         <button type="submit" class="btn-large green"> Entrar </button>
     </form>
 </div>
     
-
-@endsection
