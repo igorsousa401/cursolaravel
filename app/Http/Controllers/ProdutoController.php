@@ -15,9 +15,13 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        $produtos = Produto::paginate(6);
+        //$produtos = Produto::paginate(6);
         //dd($produto);
-        return view('site.home', compact('produtos'));
+        //return view('site.home', compact('produtos'));
+        $produtos = Produto::paginate(6);
+        $quantidadeProdutos = Produto::all()->count();
+
+        return view('admin.produtos', compact('produtos', 'quantidadeProdutos'));
     }
 
     /**
